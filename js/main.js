@@ -36,11 +36,17 @@ let coffeeCup = {
 function listProps() {
     // debugger;
 
+    if (theList.children.length >0) { // if the list is always full then empty it
+        theList.innerHTML = "";
+        // add exit the rest of the function
+        return;
+    }
     for (prop in coffeeCup) { // prop is short for property
-        console.log(prop);
+        console.log(coffeeCup[prop]);
 
         let newProp = document.createElement('li');
-        newProp.textContent = prop;
+        newProp.textContent = (coffeeCup[prop]);
+        newProp.classList.add('red-list');
 
         theList.appendChild(newProp);
     }
